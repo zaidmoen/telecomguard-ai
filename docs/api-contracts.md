@@ -32,7 +32,7 @@ Future active dataset records appear under `results` with `slug`, `name`, `descr
 `naive_bayes`, `decision_tree`, `random_forest`, `xgboost`, `svm`.
 This is reference metadata only. It **does not** imply that classifiers have been installed or trained.
 
-Unsupported methods return 405. `POST /api/v1/datasets/upload/` **does not exist** (404). No file-upload APIs will be created.
+Unsupported methods return 405. There is **no upload handler**. Since `upload` is syntactically a dataset slug, `POST /api/v1/datasets/upload/` resolves to the read-only detail view and returns 405; `GET /api/v1/datasets/upload/` returns 404 when no dataset with that slug exists. No file-upload APIs will be created.
 
 ## Planned (NOT IMPLEMENTED)
 

@@ -37,7 +37,9 @@ class DatasetCatalogAPITests(APITestCase):
             self.client.post(reverse("dataset-list"), {"name": "example"}).status_code,
             405,
         )
-        self.assertEqual(self.client.post("/api/v1/datasets/upload/").status_code, 404)
+        # The generic <slug> URL matches "upload", but cannot accept POST.
+        self.assertEqual(self.client.post("/api/v1/datasets/upload/").status_code, 405)
+        self.assertEqual(self.client.get("/api/v1/datasets/upload/").status_code, 404)
 
     @staticmethod
     def create_dataset(slug="telco", name="Telco Churn", is_active=True):
