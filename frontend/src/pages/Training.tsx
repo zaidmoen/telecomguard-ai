@@ -1,11 +1,11 @@
 import {
-  Activity, ArrowRight, Binary, CheckCircle2, CircleAlert,
+  Activity, ArrowRight, Binary, CheckCircle2,
   Clock3, Database, GitBranch, Info, Layers, LockKeyhole,
   SlidersHorizontal, Sparkles,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { algorithms } from "../config/models";
-import { InfoNote, PageHeading, ProgressStep, SectionHeading } from "../components/UI";
+import { InfoNote, PageHeading, ProgressStep } from "../components/UI";
 import { useWorkspace } from "../state/WorkspaceContext";
 
 export default function Training() {

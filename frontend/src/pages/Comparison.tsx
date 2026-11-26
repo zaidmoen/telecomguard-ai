@@ -1,5 +1,5 @@
 import {
-  ArrowRight, BarChart3, ChartNoAxesCombined, CheckCircle2,
+  ArrowRight, ChartNoAxesCombined, CheckCircle2,
   GitCompareArrows, Layers, Target, TrendingUp,
 } from "lucide-react";
 import { Link } from "react-router-dom";
