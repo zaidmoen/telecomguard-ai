@@ -50,3 +50,15 @@ class DatasetCatalogAPITests(APITestCase):
             asset_path="curated/telco.csv",
             is_active=is_active,
         )
+
+
+class SeedDatasetsTests(APITestCase):
+    def test_seed_registers_telco_and_is_repeatable(self):
+        from django.core.management import call_command
+
+        call_command("seed_datasets")
+        call_command("seed_datasets")  # running twice must not duplicate
+        self.assertEqual(Dataset.objects.count(), 1)
+        response = self.client.get(reverse("dataset-detail", kwargs={"slug": "telco-churn"}))
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.data["target_column"], "Churn")
